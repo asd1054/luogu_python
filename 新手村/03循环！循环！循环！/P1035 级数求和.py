@@ -22,3 +22,11 @@ n
 2
 '''
 
+k = int(input())
+Sn = 1
+n = 1
+while Sn <= k:
+    Sn += 1/n
+    n +=1
+print(int(n))
+
