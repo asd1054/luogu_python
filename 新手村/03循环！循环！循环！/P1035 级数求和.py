@@ -21,12 +21,16 @@ n
 输出样例#1： 
 2
 '''
-
+import pdb
 k = int(input())
-Sn = 1
+Sn = 0
 n = 1
-while Sn <= k:
-    Sn += 1/n
+while 1:
+    Sn += 1.0/n
+    
     n +=1
-print(int(n))
+    if Sn > k:
+        break
+    #pdb.set_trace()
+print(n)
 
