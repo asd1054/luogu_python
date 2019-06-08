@@ -63,6 +63,7 @@ for _ in range(12):
         deposit += reduce
     if enabled < 0 :
         bad = _ +1
+        break
 if bad :
     print('-'+str(bad)) 
 else:

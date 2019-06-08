@@ -38,10 +38,13 @@
 n = int(input())
 mental_abacus_calculation = list(map(int,input().split()))
 sum = 0
+new = []
 for i in range(n):
     for j in range(i+1,n):
-        for k in range(j+1,n):
-            tmp = mental_abacus_calculation[i] +mental_abacus_calculation[j]
-            if tmp ==mental_abacus_calculation[k]:
-                sum += 1
+        tmp = mental_abacus_calculation[i] + mental_abacus_calculation[j]
+        new.append(tmp)
+#求交集个数
+for i in range(n):
+    if mental_abacus_calculation[i] in new:
+        sum += 1
 print(sum)

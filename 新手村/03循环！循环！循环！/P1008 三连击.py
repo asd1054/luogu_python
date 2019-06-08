@@ -48,6 +48,9 @@ def isAllSame(a,b,c):
         num.append(tmp)
     # 列表去重
     num = list(set(num))
+
+    if 0 in num:
+        return False
     if len(num) <9:
         return False
     else :
