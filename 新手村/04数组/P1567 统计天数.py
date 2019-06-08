@@ -31,11 +31,14 @@
 
 n = int(input())
 temperature = list(map(int,input().split()))
-max = 0
-now = temperature[0]
+max = 1
+constant = 1
 for i in range(1,n):
-    if now < temperature[i]:
-        now = temperature[i]
-        
-    
+    if temperature[i] > temperature[i-1]:
+        constant +=1
+    elif (max < constant):
+        max = constant
+        constant = 1
+    else:
+        constant = 1 
 print(max)
