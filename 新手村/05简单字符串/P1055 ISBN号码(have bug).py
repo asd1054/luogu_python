@@ -77,7 +77,7 @@ Right
 #     print(isbn)
 
 # 下面给出其他语言的代码
-'''
+''' 
 #include <iostream>
 #include <cstring>//头文件不解释
 using namespace std;
@@ -103,6 +103,47 @@ int main()
         s[12]=c;
         cout<<s;
     }
+    return 0;
+}
+'''
+
+''' 这是以前用c++时写的记录，emmm 看不太懂了， 将就一下吧
+#include <iostream>
+using namespace std;
+int mark[10];
+int main() {
+    int a, b, c;
+    char d;
+    int d1;
+    cin >> a >> b >> c >> d>>d ;
+    b = -b, c = -c;
+    if (d == 'X')
+        d1 = 10;
+    else
+        d1 = d - '0';
+    int e=b, f=c;
+    int sum=a*1;
+    int pd ;
+    int q[4], w[6];
+    
+    for (int i = 3; i >0; i--) {
+        q[i] =  e % 10;
+        e  /= 10;
+        sum += q[i] * (i+1);
+    }
+    for (int i = 6; i >0; i--) {
+        w[i] = f % 10;
+        f /= 10;
+        sum += w[i] * (i + 3);
+    }
+    pd = sum % 11;
+    if (pd == d1) {
+        cout << "Right"<<endl;
+    }
+    else if(pd==10)
+        cout << a << "-" << b << "-" << c << "-X" << endl;
+    else 
+        cout << a<<"-"<<b<<"-"<<c<<"-"<<pd << endl;
     return 0;
 }
 '''
