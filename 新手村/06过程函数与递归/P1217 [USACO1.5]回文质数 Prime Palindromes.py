@@ -55,23 +55,63 @@ for (d1 = 1; d1 <= 9; d1+=2) {    // 只有奇数才会是素数
  }
  """
 
+import math
+
 
 def isPrime(num):
-    for i in range(2, num):
-        if (num % i) == 0:
-            return False
+    """
+    判断是否是质数
+    
+    参数
+    ----
+    num: int 测试的数字
+    """
+    if num == 1:
+        return False
+    elif (num % 2) == 2:
+        return False
+    else:
+        for i in range(2, int(math.sqrt(num) + 1)):
+            if (num % i) == 0:
+                return False
+        return True
+
+
+def checkBit(num):
+    """
+    检查位数
+    """
+    if ((1000 <= num and num <= 9999) or (100000 <= num and num <= 999999)):
+        return False
     return True
 
 
 def isHuiWenShu(num):
+    """
+    判断回文数
+    """
     tmp1 = str(num)
     tmp2 = tmp1[-1::-1]
-    if tmp1 == tmp2:
-        return True
+    if tmp1 != tmp2:
+        return False
+    return True
 
 
 a, b = map(int, input().split())
-for i in range(a, b + 1):
-    if isPrime(i):
-        if isHuiWenShu(i):
-            print(i)
+# 有一种玄学的证明方法,有偶数位的回文数（除了11）必然不是质数
+# 证明方法：显然
+# 这个数必为11的倍数
+if a % 2 == 0:
+    a += 1  # 方便后面遍历直接 奇数加2
+b = min(9999999, b)  # 再大的书都不可能是回文质数 因为最大可能取到的数是1亿
+for i in range(a, b + 1, 2):
+    if checkBit(i) is False:
+        continue
+    if isHuiWenShu(i) is False:
+        continue
+    if isPrime(i) is False:
+        continue
+    print(i)
+
+# 不是很想做了，，，，python就是图简单，
+# 所以这里就直接在本地上先把回文数的表给打印出来
