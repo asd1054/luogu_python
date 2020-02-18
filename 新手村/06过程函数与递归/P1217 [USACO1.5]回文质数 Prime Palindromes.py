@@ -55,6 +55,7 @@ for (d1 = 1; d1 <= 9; d1+=2) {    // 只有奇数才会是素数
  }
  """
 
+
 import math
 
 
@@ -79,7 +80,7 @@ def isPrime(num):
 
 def checkBit(num):
     """
-    检查位数
+    检查位数，4位6位的 直接排除掉
     """
     if ((1000 <= num and num <= 9999) or (100000 <= num and num <= 999999)):
         return False
@@ -90,11 +91,14 @@ def isHuiWenShu(num):
     """
     判断回文数
     """
-    tmp1 = str(num)
-    tmp2 = tmp1[-1::-1]
-    if tmp1 != tmp2:
-        return False
-    return True
+    huiwenshu = 0
+    tmp = num
+    while (tmp):
+        huiwenshu = huiwenshu * 10 + tmp % 10
+        tmp //= 10
+    if huiwenshu == num:
+        return True
+    return False
 
 
 a, b = map(int, input().split())
@@ -113,5 +117,5 @@ for i in range(a, b + 1, 2):
         continue
     print(i)
 
-# 不是很想做了，，，，python就是图简单，
-# 所以这里就直接在本地上先把回文数的表给打印出来
+
+## 剩下
